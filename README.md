@@ -1,4 +1,6 @@
-# Astro Starter Kit: Minimal
+# Pagina web de la Alianza Teatral Conect-arte 
+
+## Astro Starter Kit: Minimal
 
 ```sh
 npm create astro@latest -- --template minimal
