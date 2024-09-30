@@ -1,0 +1,31 @@
+---
+import NavDesktop from "./navBar/NavDesktop.astro"
+import NavMobile from "./navBar/NavMobile.astro"
+---
+
+<nav>
+  <div id="navBar-desktop">
+    <NavDesktop />
+  </div>
+
+  <div id="navBar-mobile">
+    <NavMobile />
+  </div>
+</nav>
+
+
+
+
+<style lang="sass">
+
+#navBar-mobile
+  display: none
+
+@media (max-width: 1024px)
+  #navBar-mobile
+    display: block
+
+  #navBar-desktop
+    display: none
+
+</style>
