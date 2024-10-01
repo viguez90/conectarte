@@ -1,11 +1,40 @@
 ---
 import NavDesktop from "./navBar/NavDesktop.astro"
 import NavMobile from "./navBar/NavMobile.astro"
+
+const imgLogo = 'logo.svg'
+
+const menuObject = [
+  {
+    label: 'Noticias',
+    link: '/',
+  },
+  {
+    label: 'Eventos',
+    link: '/tour',
+  },
+  {
+    label: 'Media',
+    link: '/media',
+  },
+  {
+    label: 'Blog',
+    link: '/blog',
+  },
+  {
+    label: 'Nosotros',
+    link: '/about',
+  },
+  {
+    label: 'Contacto',
+    link: '/contact'
+  },
+];
 ---
 
-<nav>
+<nav class="navBar">
   <div id="navBar-desktop">
-    <NavDesktop />
+    <NavDesktop imgLogo={imgLogo} menuObject={menuObject} />
   </div>
 
   <div id="navBar-mobile">
@@ -21,7 +50,14 @@ import NavMobile from "./navBar/NavMobile.astro"
 #navBar-mobile
   display: none
 
-@media (max-width: 1024px)
+.navBar
+  margin: 0
+  padding: 0
+  backdrop-filter: blur(30px)
+  -webkit-backdrop-filter: blur(30px)
+  box-shadow: 0px 0px 30px 0.4px rgba(0,0,0,0.4)
+
+@media (max-width: 900px)
   #navBar-mobile
     display: block
 
