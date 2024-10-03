@@ -1,9 +1,4 @@
 ---
-
-interface logoProp {
-  imgLogo: string;
-};
-
 type MenuItem = {
   label: string;
   link: string;
@@ -16,9 +11,6 @@ interface menuProp {
 const { menuObject } = Astro.props as menuProp;
 const { imgLogo } = Astro.props;
 ---
-
-
-
 
 
 <section class="navBarDesktop">
@@ -40,15 +32,7 @@ const { imgLogo } = Astro.props;
 </section>
 
 
-
-
-
 <style lang="sass">
-.navBarDesktop
-  width: 100%
-  height: 4em
-  margin: 0
-  padding: 0
 
 .logo
   width: 12em
@@ -98,6 +82,7 @@ ul
 
   .logo
     margin-left: 4em
+
 </style>
 
 
