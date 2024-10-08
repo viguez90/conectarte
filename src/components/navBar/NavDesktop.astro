@@ -15,9 +15,9 @@ const { imgLogo } = Astro.props;
 
 <section class="navBarDesktop">
 
-  <figure class="logo">
+  <figure class="logo-content">
     <a href="/">
-      <img src={imgLogo} alt="Alianza Teatral Conect-arte logo" />
+      <img src={imgLogo} alt="Alianza Teatral Conect-arte logo" class="logo-img" />
     </a>
   </figure>
 
@@ -33,8 +33,38 @@ const { imgLogo } = Astro.props;
 
 
 <style lang="sass">
+.navBarDesktop
+  width: 100%
+
+.logo-content
+  margin: 0
+  margin-left: 6em
+  margin-top: 14px
+  padding: 0
+  width: 13em
+
+.logo-img
+  padding: 0
+  width: 12em
+  height: auto
+
+ul
+  position: fixed
+  top: 1.8em
+  right: 8em
+  margin: 0
+  padding: 0
+  
+li
+  display: inline
+  margin: 0
+  font-size: 1.1em 
+
+a
+  color: white
+  text-decoration: none
+  padding: 1.2em
+  padding-top: 2em
+  &:hover
+    background-color: rgba(112, 92, 63, 0.85)
 </style>
-
-
-
-

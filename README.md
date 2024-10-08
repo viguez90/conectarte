@@ -1,4 +1,4 @@
-# Pagina web de la Alianza Teatral Conect-arte 
+# Pagina web de Alianza Teatral Conect-arte 
 
 ## Astro Starter Kit: Minimal
 
