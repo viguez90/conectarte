@@ -14,17 +14,15 @@ const { imgLogo } = Astro.props;
 
 <section class="navBarMobile">
 
-  <div class=out-toggle>
-    <label class="menu-icon">&#9776;</label>
+  <label class="menu-icon" id="btn-toggle">&#9776;</label>
 
-    <figure class="logo">
-      <a href="/">
-        <img src={imgLogo} alt="Alianza Teatral Conect-arte logo" />
-      </a>
-    </figure>
-  </div>
+  <figure class="logo-content">
+    <a href="/">
+      <img src={imgLogo} alt="Alianza Teatral Conect-arte logo" class="logo-img" />
+    </a>
+  </figure>
 
-  <div class="menu-toggle">
+  <div class="menu-toggle" id="menu-object">
     <ul>
       { menuObject.map((item) => (
         <li>
@@ -36,9 +34,93 @@ const { imgLogo } = Astro.props;
 
 </section>
 
+<script>
+let toggleActivate: boolean = false;
+ 
+const btnToggle = document.getElementById('btn-toggle');
+const menuObject = document.getElementById('menu-object');
+
+
+if (btnToggle) {
+  btnToggle.addEventListener('click', ()=>{
+    event?.stopPropagation();
+    toggleActivate = !toggleActivate;
+    toggleFunction();
+  });
+};
+
+const toggleFunction = () => {
+  if(menuObject) {
+    toggleActivate 
+      ? 
+      menuObject.style.display = 'block' 
+      : 
+      menuObject.style.display = 'none';
+  };
+};
+
+document.addEventListener('click', (event) => {
+  if (menuObject && !menuObject.contains(event.target as Node) && toggleActivate) {
+    toggleActivate = false;
+    toggleFunction();
+  }
+});
+</script>
 
 
 <style lang="sass">
+.menu-icon
+  position: fixed
+  font-size: 40px
+  cursor: pointer
+  left: 1em
+  top: 10px
+
+.navBarMobile
+  width: 100%
+
+.logo-content
+  margin: auto
+  margin-top: 9px
+  padding: 0
+  width: 13em
+  
+
+.logo-img
+  padding: 0
+  width: 12em
+  height: auto
+
+.menu-toggle
+  display: none
+  float: left
+  width: 24em
+  height: 100vh
+  background-color: rgba(0, 0, 0, 0.1)
+  backdrop-filter: blur(50px)
+  margin-top: 0.8em
+
+ul
+  height: 100vh
+  width: 100%
+  list-style-type: none
+  margin-top: 2em
+  padding: 0
+  border: 0
+  font-size: 1.2em
+  li
+    padding: 0
+    padding-top: 1em
+    padding-bottom: 1em
+    a
+      text-align: center
+      text-decoration: none
+      color: white
+      padding: 0.8em
+      padding-left: 2.8em
+      padding-right: 14em 
+    &:hover
+      background-color: rgba(140, 111, 73,0.6)
 </style>
 
 
