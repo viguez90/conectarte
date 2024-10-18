@@ -1,10 +1,12 @@
 <script>
 import { onMount } from "svelte";
-import { appwriteDatabases, appwriteStorage } from "../../lib/appwrite";
+import { appwriteDatabases } from "../../lib/appwrite";
 
 import EventCard from "./EventCard.svelte";
 
 let events = [];
+
+export let obra;
 
 onMount(async () => {
   try {
@@ -25,7 +27,7 @@ onMount(async () => {
 
 {#if events.length > 0}
   {#each events as evento}
-    <EventCard {evento} />
+    <EventCard {evento} {obra}  />
   {/each}
 {:else}
   <p>No events available.</p>

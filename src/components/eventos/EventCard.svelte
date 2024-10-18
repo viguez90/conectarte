@@ -1,5 +1,9 @@
 <script>
+import Poster from "./Poster.svelte";
 export let evento;
+export let obra;
+
+let showPoster = true;
 </script>
 
 <article>
@@ -10,5 +14,15 @@ export let evento;
   <p>{evento.month}</p>
   <p>{evento.time}</p>
   <p>{evento.numberDay}</p>
-  <img src={evento.image} alt={evento.title} style="height: 8em; width: auto;" />
+  <div class="poster">
+    <Poster poster={evento.image} description={`${obra} en ${evento.title}`} showComponent={showPoster}  />
+  </div>
 </article>
+
+<style lang="sass">
+.poster
+  position: fixed
+  z-index: 999
+</style>
+
+
