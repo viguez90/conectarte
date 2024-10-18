@@ -1,0 +1,22 @@
+---
+interface Props {
+  temporada: string;
+}
+
+const { temporada } = Astro.props;
+---
+
+<figure>
+  <img src="assets/portada.png" alt={`Nueva temporada: ${temporada} Obra de Teatro`}>
+</figure>
+
+
+<style lang="sass">
+figure
+  margin: 0
+  padding: 0
+
+img
+  width: 12em
+  height: auto
+</style>

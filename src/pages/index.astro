@@ -1,9 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import EventList from "../components/eventos/EventList.svelte"
+
+import Portada from "../components/Portada.astro"
 ---
 
 <Layout title="Alianza Teatral Conect-arte">
-  <main>
-    <h1>Proximos Eventos</h1>
+  <main class="content">
+    <Portada temporada="Macario" />
+
+    <section class="events">
+      <h2 class="title">Proximos Eventos</h1>
+      <EventList client:load />
+    </section>
   </main>
 </Layout>
