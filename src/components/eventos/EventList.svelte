@@ -1,34 +1,34 @@
-<script>
-import { onMount } from "svelte";
-import { appwriteDatabases } from "../../lib/appwrite";
+<script lang="ts">
+  import { onMount } from "svelte";
+  import { appwriteFetchData } from "../../lib/appwriteUtils";
 
-import EventCard from "./EventCard.svelte";
+  import EventCard from "./EventCard.svelte";
 
-let events = [];
+  let events: any[] = [];
 
-export let obra;
-
-onMount(async () => {
-  try {
-    const response = await appwriteDatabases.listDocuments(
-      import.meta.env.PUBLIC_APPWRITE_DB_ID,
-      import.meta.env.PUBLIC_APPWRITE_EVENTS_COLLECTION_ID
-    );
-    events = response.documents.map(async (doc) => {
-      return doc;
-    });
-    events = await Promise.all(events);
-  } catch (error) {
-    console.log('Error al consultar los datos de appwrite', error);
-  }
-})
+  let loading: boolean = true;
+  onMount(async () => {
+    try {
+      events = await appwriteFetchData(
+        import.meta.env.PUBLIC_APPWRITE_DB_ID,
+        import.meta.env.PUBLIC_APPWRITE_EVENTS_COLLECTION_ID
+      );
+    } catch (error) {
+      console.log('Error fetching events:', error);
+    }
+    loading = false;
+  });
 </script>
 
-
-{#if events.length > 0}
-  {#each events as evento}
-    <EventCard {evento} {obra}  />
-  {/each}
-{:else}
-  <p>No events available.</p>
+{#if loading}
+   <h2>Cargando...</h2>
+  {:else}
+    {#if events.length > 0}
+      {#each events as evento}
+        <EventCard {evento} />
+      {/each}
+    {:else}
+      <p>No events available</p>
+    {/if}
 {/if}
+
