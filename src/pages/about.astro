@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+import AboutContent from "../content/about.md"
+---
+
+<Layout title="About"> 
+
+  <div class="container">
+    <div class="image">
+      <img src="assets/perfil.jpg" alt="Foto de los integrantes">
+    </div>
+    <div class="markdown">
+      <AboutContent />
+    </div>
+  </div>
+
+</Layout>
+
+<style lang="sass">
+.container
+  margin: 4em
+  margin-top: 0
+  margin-bottom: 0
+  padding: 4em
+  padding-top: 2em
+  background-color: rgba(0,0,0,0.2)
+
+img
+  margin: 0
+  padding: 0
+  width: 100%
+  height: auto
+
+.image
+  margin: auto
+  width: 40%
+  height: auto
+
+</style>
+

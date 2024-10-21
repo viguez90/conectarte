@@ -1,0 +1,63 @@
+---
+import Layout from "../layouts/Layout.astro"
+import EventList from "../components/eventos/EventList.svelte"
+
+import Portada from "../components/Portada.astro"
+
+const obra = 'Macario';
+---
+
+<Layout title="Eventos">
+  <main>
+
+  <div class="container">
+    <section class="portada">
+      <Portada temporada="Macario" />
+    </section>
+
+    <section class="events">
+      <h2 class="title title-event">Proximos Eventos</h1>
+        <div class="cards">
+          <EventList {obra} client:load />
+        </div>
+      </section>
+    </div>
+
+  </main>
+</Layout>
+
+
+<style lang="sass">
+.container
+  display: flex
+  width: 100%
+  flex-flow: row wrap
+  justify-content: space-around
+
+.portada
+  flex-basis: 60%
+
+.events
+  flex-basis: 40%
+  width: 100%
+
+.title-event
+  margin: auto
+  margin-bottom: 2.5em
+  margin-top: 2em
+  width: 90%
+  background: #98774a
+  padding: 10px
+  box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.4)
+
+.cards
+  position: relative
+
+@media (max-width: 1830px)
+  .portada
+    flex-basis: 20%
+  
+  .events
+    flex-basis: 80%
+</style>
+

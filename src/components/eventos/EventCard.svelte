@@ -82,15 +82,33 @@ li
   min-width: 3em
 
 #location
-  min-width: 200px 
+  max-width: 800px 
+  border: rgba(255,255,255,0) 1px solid 
+  border-left-color: rgba(255,255,255,1.0)
+  border-right-color: rgba(255,255,255,1.0)
+  padding-left: 0.8em
+  padding-right: 0.8em
 
 #time
   min-width: 4.4em
 
 
-@media (max-width: 600px)
-  #day, #location
+@media (max-width: 724px)
+  #location
     border: rgba(255,255,255,0) 1px solid 
     border-bottom-color: rgba(255,255,255,1.0)
+    border-top-color: rgba(255,255,255,1.0)
+
+  .font-sm
+    font-size: 0.6em
+
+  .font-xl
+    font-size: 1.2em
+
+  .font-lg
+    font-size: 1em
+
+  .font-2xl
+    font-size: 1.2em
 </style>
 

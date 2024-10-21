@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/svelte": "^5.7.2",
-    "astro": "^4.15.9",
+    "astro": "^4.16.6",
     "svelte": "^4.2.19",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
     "appwrite": "^16.0.2",
-    "sass-embedded": "^1.79.4"
+    "sass-embedded": "^1.80.3"
   }
 }

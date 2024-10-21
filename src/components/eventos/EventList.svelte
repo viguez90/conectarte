@@ -3,6 +3,7 @@
   import { appwriteFetchData } from "../../lib/appwriteUtils";
 
   import EventCard from "./EventCard.svelte";
+  import Loading from "../Loading.svelte";
 
   let events: any[] = [];
 
@@ -21,7 +22,7 @@
 </script>
 
 {#if loading}
-   <h2>Cargando...</h2>
+  <Loading />
   {:else}
     {#if events.length > 0}
       {#each events as evento}
