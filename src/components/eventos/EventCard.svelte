@@ -88,6 +88,8 @@ li
   border-right-color: rgba(255,255,255,1.0)
   padding-left: 0.8em
   padding-right: 0.8em
+  p
+    margin-top: 6px
 
 #time
   min-width: 4.4em

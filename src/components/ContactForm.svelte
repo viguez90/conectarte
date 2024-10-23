@@ -2,29 +2,48 @@
   const data = [
     { label: "Nombre", id: "name", type: "text" },
     { label: "Apellido", id: "lastname", type: "text" },
-    { label: "Correo", id: "mail", type: "email" },
+    { label: "Correo", id: "mail", type: "text" },
     { label: "Telefono", id: "phone", type: "tel" },
   ];
 </script>
 
 <form class="form-container">
+
   <h1>Escribenos</h1>
+  
   <div class="form-items">
+
   {#each data as item (item.id)}
     <div class="form-input-item">
       <input type={item.type} id={item.id} name={item.id} required>
       <label for={item.id}>{item.label}</label>
     </div>
   {/each}
+
   </div>
+
+
   <div class="form-message">
+
     <div id="void"></div>
-    <textarea name="message" id="message"></textarea>
-    <label for="message" >Tu mensaje</label>
+
+    <div class="box-message">
+      <textarea name="message" id="message"></textarea>
+      <label for="message" >Tu mensaje</label>
+    </div>
+    
+    <div class="checking">
+      <input type="checkbox" id="privacidad" name="privacidad" required>
+      <label for="privacidad">He leido la politica de privacidad y acepto los Terminos y Condiciones planteados en ella: </label>
+      <a href="privacidad">leer</a>
+    </div>
+
     <div class="form-submit">
       <button type="submit">Enviar</button>
     </div>
+
   </div>
+
 </form>
 
 
@@ -33,7 +52,7 @@
 <style>
 .form-container {
   background: rgba(0,0,0,0.2);
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
   margin-bottom: 1em;
   padding: 2em;
@@ -52,7 +71,6 @@ h1 {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: 1em;
 }
 
 .form-input-item {
@@ -86,7 +104,16 @@ input:focus {
 input:focus + label {
   bottom: 3.6em;
   color: rgba(206, 166, 107, 1.0 );
-  transition: bottom 0.3s ease, color 0.5s ease;
+  transition: bottom 0.2s ease, color 0.5s ease;
+}
+
+input:valid {
+  border-bottom: 1px solid rgba(206, 166, 107, 1.0);
+}
+
+input:valid + label {
+  bottom: 3.6em;
+  color: rgba(206, 166, 107, 1.0 );
 }
 
 .form-message {
@@ -100,14 +127,14 @@ input:focus + label {
   height: 1.8em;
 }
 
-.form-message label {
+.box-message label {
   position: relative;
   bottom: 14em;
   left: 1.1em;
   width: 20em;
 }
 
-.form-message textarea {
+.box-message textarea {
   width: 94%;
   height: 200px;
   padding: 20px;
@@ -119,12 +146,12 @@ input:focus + label {
   resize: none;
 }
 
-.form-message textarea:focus {
+.box-message textarea:focus {
   border: 1px solid rgba(206, 166, 107, 0.8);
   transition: border 0.8s ease;
 }
 
-.form-message textarea:focus + label {
+.box-message textarea:focus + label {
   color: rgba(206, 166, 107, 1.0);
   bottom: 17.2em;
   transition: bottom 0.4s ease, color 0.5s ease;
@@ -138,24 +165,22 @@ input:focus + label {
   font-family: SUSE;
   font-size: 1.6em;
   font-weight: bold;
-  background: linear-gradient(90deg, rgba(132,106,69,0.2) 0%, rgba(219,175,112,0.2) 100%);;
-  color: rgba(255,255,255,0.2);
+  background: linear-gradient(325deg, rgba(132,106,69,0.6) 50%, rgba(219,175,112,0.2) 100%);;
+  color: rgba(255,255,255,0.6);
   border: 0;
   padding: 1em;
   padding-top: 12px;
   padding-bottom: 12px;
   margin: 0;
-  margin-bottom: 20px;
 }
-
 
 .form-submit button:hover {
   cursor: pointer;
-  background: linear-gradient(124deg, rgba(132,106,69,1) 25%, rgba(219,175,112,1) 100%);
+  background: linear-gradient(124deg, rgba(132,106,69,1.0) 25%, rgba(219,175,112,1.0) 100%);
   color: rgba(255,255,255,0.8);  
   box-shadow: 0px 0px 2px 2px rgba(206, 166, 107, 0.4);
   text-shadow: 0px 0px 2px rgba(255,255,255,0.4);
-  transition: background 0.8s ease, color 0.4s ease, box-shadow 0.2s ease;
+  transition: background 0.8s ease, color 0.4s ease;
 }
 
 .form-submit button:active {
@@ -163,8 +188,42 @@ input:focus + label {
   background: linear-gradient(90deg, rgba(132,106,69,1) 25%, rgba(219,175,112,1) 100%);
   color: rgba(255,255,255,0.8);  
   box-shadow: 0px 0px 2px 2px rgba(206, 166, 107, 0.4);
-  text-shadow: 0px 0px 2px rgba(255,255,255,0.4);
   transition: background 0.8s ease, color 0.4s ease, box-shadow 0.2s ease;
+}
+
+.checking {
+  width: 100%;
+  padding-bottom: 2em;
+}
+
+.checking input {
+  width: 20px;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.checking label {
+  margin: 0;
+  padding: 0;
+  color: rgba(206, 166, 107, 0.4);
+  font-size: 14px;
+}
+
+.checking a {
+  font-size: 14px;
+  text-decoration: none;
+  color: rgba(217,197,72,0.8); 
+}
+
+.checking a:hover {
+  color: rgba(254,236,128,1.0);
+}
+
+.checking input:valid + label {
+  color: rgba(206, 166, 107, 0.8);
+}
+
+.checking input:invalid + label {
+  color: rgba(206, 166, 107, 0.4);
 }
 
 @media (max-width: 790px){
@@ -182,6 +241,15 @@ input:focus + label {
 @media (max-width: 440px){
   .form-message textarea {
     width: 84%;
+  }
+  .form-submit {
+    margin-left: 28%;
+  }
+}
+
+@media (max-width: 315px) {
+  .form-submit {
+    margin-left: 22%;
   }
 }
 </style>
