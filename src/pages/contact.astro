@@ -1,8 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.svelte";
 ---
 
 <Layout title="Contacto">
+  <div class="formulario">
+    <ContactForm client:only="svelte" />
+  </div>
 </Layout>
 
 
