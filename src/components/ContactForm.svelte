@@ -1,13 +1,45 @@
 <script>
+import { createContact } from "../lib/appwriteUtils";
+
   const data = [
     { label: "Nombre", id: "name", type: "text" },
     { label: "Apellido", id: "lastname", type: "text" },
     { label: "Correo", id: "mail", type: "text" },
     { label: "Telefono", id: "phone", type: "tel" },
   ];
+
+
+
+  let privacyAcept = false;
+
+  async function handleSubmit(event) {
+    event.preventDefault(); // Evita el envío clásico del formulario
+
+    // Recopila los datos del formulario
+    const formData = new FormData(event.target);
+    const contactData = {
+      name: formData.get('name'),
+      lastname: formData.get('lastname'),
+      mail: formData.get('mail'),
+      phone: formData.get('phone'),
+      privacyAcept: formData.get('privacidad') === 'on',
+      message: formData.get('message'),
+    };
+
+    try {
+      await createContact(contactData); 
+      alert('Contacto creado exitosamente!');
+      event.target.reset();
+      privacyAcept = false;
+    } catch (error) {
+      alert('Error al crear el contacto: ' + error.message);
+    }
+  }
+
+
 </script>
 
-<form class="form-container">
+<form class="form-container" on:submit={handleSubmit}>
 
   <h1>Escribenos</h1>
   
@@ -33,7 +65,7 @@
     </div>
     
     <div class="checking">
-      <input type="checkbox" id="privacidad" name="privacidad" required>
+      <input type="checkbox" id="privacidad" name="privacidad" required bind:checked={privacyAcept}>
       <label for="privacidad">He leido la politica de privacidad y acepto los Terminos y Condiciones planteados en ella: </label>
       <a href="privacidad">leer</a>
     </div>
@@ -43,7 +75,7 @@
     </div>
 
   </div>
-
+  
 </form>
 
 

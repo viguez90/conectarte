@@ -12,3 +12,19 @@ export async function appwriteFetchData(databaseId: string, collectionId: string
     throw error;
   }
 }
+
+
+export async function createContact(contactData: { name: string; lastname: string; mail: string; phone: string; privacyAcept: boolean; message: string }) {
+  try {
+    const response = await appwriteDatabases.createDocument(
+      import.meta.env.PUBLIC_APPWRITE_DB_ID,
+      import.meta.env.PUBLIC_APPWRITE_CONTACT_COLLECTION_ID,
+      'unique()', // Use 'unique()' to generate a unique ID for the document
+      contactData
+    );
+    return response;
+  } catch (error) {
+    console.error('Error creating event in Appwrite:', error);
+    throw error;
+  }
+}
