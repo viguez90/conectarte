@@ -1,4 +1,4 @@
-import { appwriteDatabases } from './appwrite';
+import { appwriteDatabases } from '@lib/appwrite';
 
 export async function appwriteFetchData(databaseId: string, collectionId: string) {
   try {

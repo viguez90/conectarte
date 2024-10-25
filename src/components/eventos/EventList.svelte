@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { appwriteFetchData } from "../../lib/appwriteUtils";
+  import { appwriteFetchData } from "@lib/appwriteUtils";
 
-  import EventCard from "./EventCard.svelte";
-  import Loading from "../Loading.svelte";
+  import EventCard from "@components/eventos/EventCard.svelte";
+  import Loading from "@components/Loading.svelte";
 
   let events: any[] = [];
 

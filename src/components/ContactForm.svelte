@@ -1,5 +1,5 @@
 <script>
-import { createContact } from "../lib/appwriteUtils";
+import { createContact } from "@lib/appwriteUtils";
 
   const data = [
     { label: "Nombre", id: "name", type: "text" },
