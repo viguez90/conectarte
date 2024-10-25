@@ -67,7 +67,7 @@ import { createContact } from "@lib/appwriteUtils";
     <div class="checking">
       <input type="checkbox" id="privacidad" name="privacidad" required bind:checked={privacyAcept}>
       <label for="privacidad">He leido la politica de privacidad y acepto los Terminos y Condiciones planteados en ella: </label>
-      <a href="privacidad">leer</a>
+      <a href="/privacidad">leer</a>
     </div>
 
     <div class="form-submit">
