@@ -8,7 +8,7 @@ import AboutContent from "../content/about.md"
 
   <div class="container">
     <div class="image">
-      <img src="assets/perfil.jpg" alt="Foto de los integrantes">
+      <img src="./assets/perfil.jpg" alt="Foto de los integrantes">
     </div>
     <div class="markdown">
       <AboutContent />
@@ -35,8 +35,19 @@ img
 
 .image
   margin: auto
-  width: 40%
+  width: 50%
   height: auto
+
+@media (max-width: 800px)
+  .container
+    margin: 0
+    padding: 10px
+    
+  .image
+    width: 100%
+
+  .markdown
+    font-size: 14px
 
 </style>
 

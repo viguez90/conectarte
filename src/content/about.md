@@ -1,5 +1,20 @@
-# Acerca de Nosotros
+# ¿Quienes Somos?
 
+¡Somos un colectivo artístico que se une para crear un espacio de expresión y crecimiento teatral!
 
-Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+En Alianza teatral Conect-arte, creemos en el poder de la unión y la colaboración para alcanzar la excelencia en el arte escénico. Somos un grupo de artistas apasionados que nos hemos unido para explorar y desarrollar nuestras habilidades teatrales, 
+creando un ambiente de apoyo mutuo y crecimiento personal.
+
+Nuestra misión es fomentar la expresión artística en todas sus formas, permitiendo que cada miembro del grupo encuentre su voz y su escencia como artista a través del teatro. Creemos que el teatro es una herramienta poderosa para explorar emociones, 
+contar historias y conectar con el público de una manera única y profunda.
+
+En Alianza teatral Conect-arte, nos enfocamos en el desarrollo de habilidades y competencias tanto individuales como grupales. A través de talleres, ensayos y actuaciones, trabajamos en la mejora de la expresión corporal, la voz, la improvisación 
+y la creación de personajes. Cada miembro del grupo tiene la oportunidad de crecer y aprender de los demás, compartiendo experiencias y conocimientos.
+
+Nuestra fuerza radica en la diversidad de talentos y perspectivas que aporta cada uno de nosotros. Nos unimos en un ambiente seguro, de respeto y colaboración, donde la creatividad fluye libremente y las ideas se transforman en actuaciones memorables.
+
+Como grupo, buscamos crear un impacto positivo en nuestra comunidad, llevando el teatro a diferentes espacios y conectando con el público a través de nuestras historias. Creemos en el poder del arte para inspirar, emocionar y generar conciencia.
+
+Contacta con nosotros y conoce este viaje artístico, donde la unidad, la expresión y el desarrollo personal se entrelazan para crear una experiencia teatral inolvidable. ¡Conectemos a través del arte y hagamos que nuestras voces resuenen en el escenario!
+
 

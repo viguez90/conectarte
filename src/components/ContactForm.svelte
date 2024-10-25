@@ -83,7 +83,7 @@ import { createContact } from "../lib/appwriteUtils";
 
 <style>
 .form-container {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.3);
   max-width: 900px;
   margin: auto;
   margin-bottom: 1em;
