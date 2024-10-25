@@ -9,6 +9,9 @@ import { createContact } from "@lib/appwriteUtils";
   ];
 
 
+  let text = '';
+
+
 
   let privacyAcept = false;
 
@@ -60,7 +63,7 @@ import { createContact } from "@lib/appwriteUtils";
     <div id="void"></div>
 
     <div class="box-message">
-      <textarea name="message" id="message"></textarea>
+      <textarea name="message" id="message" class={text.trim() === '' ? 'empty' : ''} bind:value={text}></textarea>
       <label for="message" >Tu mensaje</label>
     </div>
     
@@ -151,7 +154,6 @@ input:valid + label {
 .form-message {
   margin: auto;
   overflow: hidden;
-  color: rgba(206, 166, 107, 0.6);
   padding: 0;
 }
 
@@ -164,6 +166,7 @@ input:valid + label {
   bottom: 14em;
   left: 1.1em;
   width: 20em;
+  color: rgba(206, 166, 107, 0.6);
 }
 
 .box-message textarea {
@@ -178,12 +181,12 @@ input:valid + label {
   resize: none;
 }
 
-.box-message textarea:focus {
+.box-message textarea.empty:focus {
   border: 1px solid rgba(206, 166, 107, 0.8);
   transition: border 0.8s ease;
 }
 
-.box-message textarea:focus + label {
+.box-message textarea.empty:focus + label {
   color: rgba(206, 166, 107, 1.0);
   bottom: 17.2em;
   transition: bottom 0.4s ease, color 0.5s ease;
@@ -196,6 +199,15 @@ input:valid + label {
 .box-message textarea:valid + label {
   color: rgba(206, 166, 107, 1.0);
   bottom: 17.2em;
+}
+
+.box-message textarea.empty {
+  border: 0;
+}
+
+.box-message textarea.empty + label {
+  color: rgba(206, 166, 107, 0.6);
+  bottom: 14em;
 }
 
 .form-submit {
