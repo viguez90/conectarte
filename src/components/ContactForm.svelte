@@ -189,6 +189,15 @@ input:valid + label {
   transition: bottom 0.4s ease, color 0.5s ease;
 }
 
+.box-message textarea:valid {
+  border: 1px solid rgba(206, 166, 107, 0.8);
+}
+
+.box-message textarea:valid + label {
+  color: rgba(206, 166, 107, 1.0);
+  bottom: 17.2em;
+}
+
 .form-submit {
   margin-left: 38%;
 }
