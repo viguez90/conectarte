@@ -6,13 +6,18 @@
   import Loading from "@components/Loading.svelte";
 
   let events: any[] = [];
-
+  let upcomingEvents: any[] = [];
   let loading: boolean = true;
+
   onMount(async () => {
     try {
       events = await appwriteFetchData(
         import.meta.env.PUBLIC_APPWRITE_DB_ID,
         import.meta.env.PUBLIC_APPWRITE_EVENTS_COLLECTION_ID
+      );
+      const now = new Date();
+      upcomingEvents = events.filter(
+        evento => new Date(evento.date) >= now
       );
     } catch (error) {
       console.log('Error fetching events:', error);
@@ -24,8 +29,8 @@
 {#if loading}
   <Loading />
   {:else}
-    {#if events.length > 0}
-      {#each events as evento}
+    {#if upcomingEvents.length > 0}
+      {#each upcomingEvents as evento}
         <EventCard {evento} />
       {/each}
     {:else}
