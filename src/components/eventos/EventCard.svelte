@@ -80,6 +80,8 @@ li
 
 #day  
   min-width: 3em
+  text-align: center
+
 
 #location
   max-width: 800px 
