@@ -77,10 +77,9 @@ document.addEventListener('click', (event) => {
 <style lang="sass">
 .menu-icon
   position: fixed
-  font-size: 40px
+  font-size: 30px
   cursor: pointer
-  left: 1em
-  top: 1px
+  top: 10px
   color: black
   &:hover
     filter: drop-shadow(0px 0px 2px rgba(255,255,255,0.2))
@@ -94,7 +93,7 @@ document.addEventListener('click', (event) => {
   padding: 0
   width: 12em
   &:hover
-    filter: drop-shadow(0px 0px 1px rgba(255,255,255,0.8))
+    filter: drop-shadow(0px 0px 1px rgba(255,255,255,0.1))
 
 .logo-img
   padding: 0
@@ -123,18 +122,16 @@ ul
     padding: 0
     padding-top: 1em
     padding-bottom: 1em
+    text-align: center
     a
       font-family: 'anaktoria'
-      text-align: center
+      font-size: 1.4em
       text-decoration: none
       color: black
-      padding: 0.8em
-      padding-left: 2.8em
-      padding-right: 14em 
-    &:hover
-      text-decoration: underline
-      backgound-color: rgba(255,255,255,0.2)
-      color: black
+      &:hover
+        text-decoration: underline
+        backgound-color: rgba(255,255,255,0.2)
+        color: black
 
 @media (max-width: 500px)
   .menu-icon
