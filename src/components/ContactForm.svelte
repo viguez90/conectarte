@@ -86,7 +86,7 @@ import { createContact } from "@lib/appwriteUtils";
 
 <style>
 .form-container {
-  background: rgba(0,0,0,0.3);
+  background: rgba(219,134,43,1.0);
   max-width: 900px;
   margin: auto;
   margin-bottom: 1em;
@@ -96,9 +96,10 @@ import { createContact } from "@lib/appwriteUtils";
 }
 
 h1 {
+  font-family: 'anaktoria';
   text-align: center;
   padding-bottom: 0.8em;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,1);
 }
 
 .form-items {
@@ -117,7 +118,7 @@ h1 {
   position: relative;
   bottom: 2em;
   margin: auto;
-  color: rgba(206, 166, 107, 0.6);
+  color: rgba(255,255,255,0.5);
 }
 
 input {
@@ -126,29 +127,29 @@ input {
   outline: none;
   background: rgba(0,0,0,0);
   border: 0px;
-  border-bottom: 1px solid rgba(206, 166, 107, 0.08);
-  color: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,1.0);
   font-size: 1em;
 }
 
 input:focus {
-  border-bottom: 1px solid rgba(206, 166, 107, 1.0);
+  border-bottom: 1px solid rgba(255,255,255,0.8);
   transition: border-bottom 0.8s ease;
 }
 
 input:focus + label {
   bottom: 3.6em;
-  color: rgba(206, 166, 107, 1.0 );
+  color: rgba(255,255,255,1);;
   transition: bottom 0.2s ease, color 0.5s ease;
 }
 
 input:valid {
-  border-bottom: 1px solid rgba(206, 166, 107, 1.0);
+  border-bottom: 1px solid rgba(255,255,255,1);
 }
 
 input:valid + label {
   bottom: 3.6em;
-  color: rgba(206, 166, 107, 1.0 );
+  color: rgba(255,255,255,1);
 }
 
 .form-message {
@@ -166,38 +167,38 @@ input:valid + label {
   bottom: 14em;
   left: 1.1em;
   width: 20em;
-  color: rgba(206, 166, 107, 0.6);
+  color: rgba(255,255,255,1);
 }
 
 .box-message textarea {
   width: 94%;
   height: 200px;
   padding: 20px;
-  background: rgba(0,0,0,0.06);
+  background: rgba(0,0,0,0.1);
   border: 0;
   outline: none;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,1.0);
   font-size: 1em;
   resize: none;
 }
 
 .box-message textarea.empty:focus {
-  border: 1px solid rgba(206, 166, 107, 0.8);
+  border: 1px solid rgba(255,255,255,0.8);
   transition: border 0.8s ease;
 }
 
 .box-message textarea.empty:focus + label {
-  color: rgba(206, 166, 107, 1.0);
+  color: rgba(255,255,255,1);
   bottom: 17.2em;
   transition: bottom 0.4s ease, color 0.5s ease;
 }
 
 .box-message textarea:valid {
-  border: 1px solid rgba(206, 166, 107, 0.8);
+  border: 1px solid rgba(255,255,255,1);
 }
 
 .box-message textarea:valid + label {
-  color: rgba(206, 166, 107, 1.0);
+  color: rgba(255,255,255,1);
   bottom: 17.2em;
 }
 
@@ -206,7 +207,7 @@ input:valid + label {
 }
 
 .box-message textarea.empty + label {
-  color: rgba(206, 166, 107, 0.6);
+  color: rgba(255,255,255,0.6);
   bottom: 14em;
 }
 
@@ -215,11 +216,11 @@ input:valid + label {
 }
 
 .form-submit button {
-  font-family: SUSE;
+  font-family: 'cardo-regular';
   font-size: 1.6em;
   font-weight: bold;
-  background: linear-gradient(325deg, rgba(132,106,69,0.6) 50%, rgba(219,175,112,0.2) 100%);;
-  color: rgba(255,255,255,0.6);
+  background: rgba(172,61,22,0.96);
+  color: rgba(255,255,255,0.8);
   border: 0;
   padding: 1em;
   padding-top: 12px;
@@ -229,16 +230,15 @@ input:valid + label {
 
 .form-submit button:hover {
   cursor: pointer;
-  background: linear-gradient(124deg, rgba(132,106,69,1.0) 25%, rgba(219,175,112,1.0) 100%);
-  color: rgba(255,255,255,0.8);  
+  background: rgba(219,175,112,1.0);
+  color: black;
   box-shadow: 0px 0px 2px 2px rgba(206, 166, 107, 0.4);
-  text-shadow: 0px 0px 2px rgba(255,255,255,0.4);
-  transition: background 0.8s ease, color 0.4s ease;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 .form-submit button:active {
   cursor: pointer;
-  background: linear-gradient(90deg, rgba(132,106,69,1) 25%, rgba(219,175,112,1) 100%);
+  background: rgba(219,134,43,1.0);
   color: rgba(255,255,255,0.8);  
   box-shadow: 0px 0px 2px 2px rgba(206, 166, 107, 0.4);
   transition: background 0.8s ease, color 0.4s ease, box-shadow 0.2s ease;
@@ -251,32 +251,32 @@ input:valid + label {
 
 .checking input {
   width: 20px;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(255, 255, 255, 1.0);
 }
 
 .checking label {
   margin: 0;
   padding: 0;
-  color: rgba(206, 166, 107, 0.4);
+  color: rgba(255, 255, 255, 1.0);
   font-size: 14px;
 }
 
 .checking a {
   font-size: 14px;
   text-decoration: none;
-  color: rgba(217,197,72,0.8); 
+  color: rgba(172,61,22,0.96)
 }
 
 .checking a:hover {
-  color: rgba(254,236,128,1.0);
+  color: black;
 }
 
 .checking input:valid + label {
-  color: rgba(206, 166, 107, 0.8);
+  color: rgba(255, 255, 255, 1.0);
 }
 
 .checking input:invalid + label {
-  color: rgba(206, 166, 107, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 790px){

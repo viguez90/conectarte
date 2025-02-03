@@ -24,7 +24,7 @@ export let evento;
 
 <style lang="sass">
 .card
-  background-color: rgba(151, 119, 79, 0.8)
+  background-color: rgba(219,134,43,1.0)
   max-width: 90%
   min-height: 4em 
   box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.2)
