@@ -8,8 +8,8 @@ export let evento;
 <div class="card">
 <ul>
   <li id="day">
-    <p class="font-xl wrap-top">{evento.numberDay}</p>
-    <p class="font-lg wrap-bottom">{evento.month}</p>
+    <span class="font-xl">{evento.numberDay}</span>
+    <span class="font-xl space-void">{evento.month}</span>
   </li>
   <li id="location">
     <h2 class="font-lg">{evento.title}</h2>
@@ -70,18 +70,12 @@ li
   margin-left: 0.8em
   margin-right: 0.8em
 
-.wrap-top
-  position: relative
-  top: 3px
+.space-void
+  padding-left: 8px
 
-.wrap-bottom
-  position: relative
-  bottom: 3px
 
 #day  
   min-width: 3em
-  text-align: center
-
 
 #location
   max-width: 800px 
@@ -114,5 +108,11 @@ li
 
   .font-2xl
     font-size: 1.2em
+
+  .space-void
+    padding-left: 0
+
+  #location
+    text-align: center
 </style>
 
