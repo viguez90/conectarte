@@ -13,7 +13,8 @@
     try {
       events = await appwriteFetchData(
         import.meta.env.PUBLIC_APPWRITE_DB_ID,
-        import.meta.env.PUBLIC_APPWRITE_EVENTS_COLLECTION_ID
+        import.meta.env.PUBLIC_APPWRITE_EVENTS_COLLECTION_ID,
+        10
       );
       const now = new Date();
       upcomingEvents = events.filter(

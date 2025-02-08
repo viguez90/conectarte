@@ -1,8 +1,16 @@
 import { appwriteDatabases } from '@lib/appwrite';
+import { Query } from 'appwrite';
 
-export async function appwriteFetchData(databaseId: string, collectionId: string) {
+export async function appwriteFetchData(databaseId: string, collectionId: string, limit: number) {
   try {
-    const response = await appwriteDatabases.listDocuments(databaseId, collectionId);
+    const response = await appwriteDatabases.listDocuments(
+      databaseId,
+      collectionId,
+      [
+          Query.limit(limit),
+          Query.offset(0)
+      ]
+    );
     const docsResult = response.documents.map(async (doc) => {
       return doc;
     });
@@ -28,3 +36,24 @@ export async function createContact(contactData: { name: string; lastname: strin
     throw error;
   }
 }
+
+
+export async function updatePass(collection: string, document: string, attribute: string, value: any) {
+  try {
+    const data = {
+      [attribute]: value // Usamos la sintaxis de corchetes para construir el objeto
+    };
+
+    const response = await appwriteDatabases.updateDocument(
+      import.meta.env.PUBLIC_APPWRITE_DB_ID,
+      collection,
+      document,
+      data
+    );
+    return response;
+  } catch (error) {
+    console.error('Error updating document in Appwrite:', error);
+    throw error;
+  }
+}
+

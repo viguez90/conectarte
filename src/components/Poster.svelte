@@ -11,5 +11,8 @@
 {/if}
 
 <style lang="sass">
+  img
+    margin: auto
+    padding: 0
 </style>
 
