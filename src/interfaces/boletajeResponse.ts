@@ -1,9 +1,9 @@
-export interface Boletaje {
+export interface BoletajeResponse {
   id: string,
   acces: string
   }
 
-  export interface Boleto {
+  export interface BoletoResponse {
     evento: string,
     section: string,
     asiento: string,
