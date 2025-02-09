@@ -5,7 +5,6 @@ import { Boleto } from "@interfaces/boletajeResponse"
 import { getBoletaje, getBoleto } from "@lib/boletajeUtils"
 
 
-
 export const getStaticPaths = (async () => {
     const results = await getBoleto("20250703170000") as Boleto; // Asegúrate de usar await aquí
 
