@@ -1,4 +1,5 @@
 ---
+export const prerender = false;
 import LayoutBoleto from "@layouts/LayoutBoleto.astro";
 import Boletaje from "@components/boletaje/Boletaje.svelte"
 import { appwriteFetchData } from "@lib/appwriteUtils";
@@ -20,11 +21,6 @@ const boletosDB = await appwriteFetchData(
 );
 
 const boletoPass = boletosDB.filter(e => e.id == boleto);
-console.log("#########################################");
-console.log(boletosDB);
-console.log(boletoPass);
-console.log(boleto);
-console.log("#########################################");
 
 ---
 
