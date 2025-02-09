@@ -9,6 +9,8 @@
     const attributeToUpdate = 'ocupado'; // El atributo que quieres actualizar
     const newValue = true; // El nuevo valor para ese atributo
 
+
+
     afterUpdate(
         updatePass(collectionId, documentId, attributeToUpdate, newValue)
           .then(response => {
