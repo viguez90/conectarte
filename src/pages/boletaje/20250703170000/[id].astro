@@ -19,9 +19,7 @@ export const getStaticPaths = (async () => {
     });
 }) satisfies GetStaticPaths;
 
-
 const { id } = Astro.params;
-const { evento, section, asiento, invitado, ocupado, img } = Astro.props;
 
 const boletaje = await getBoletaje("20250703170000") as BoletajeResponse;
 const { acces } = boletaje;
