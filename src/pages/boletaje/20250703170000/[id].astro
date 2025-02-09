@@ -1,12 +1,11 @@
 ---
 import LayoutBoleto from "@layouts/LayoutBoleto.astro";
 import Boletaje from "@components/boletaje/Boletaje.svelte"
-import { BoletajeResponse, BoletoResponse } from "@interfaces/boletajeResponse"
 import { getBoletaje, getBoleto } from "@lib/boletajeUtils"
 
 
 export const getStaticPaths = (async () => {
-    const results = await getBoleto("20250703170000") as BoletoResponse; // Asegúrate de usar await aquí
+    const results = await getBoleto("20250703170000"); // Asegúrate de usar await aquí
 
     const boletos = results.map(e => e.id);
 
@@ -21,11 +20,11 @@ export const getStaticPaths = (async () => {
 
 const { id } = Astro.params;
 
-const boletaje = await getBoletaje("20250703170000") as BoletajeResponse;
+const boletaje = await getBoletaje("20250703170000");
 const { acces } = boletaje;
 const boletajeAcces = acces
 
-const boletos = await getBoleto("20250703170000") as BoletoResponse;
+const boletos = await getBoleto("20250703170000");
 const boleto = boletos.filter(e => e.id == id);
 ---
 
