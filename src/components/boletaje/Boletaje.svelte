@@ -11,28 +11,40 @@
     const attributeToUpdate = 'ocupado'; // El atributo que quieres actualizar
     const newValue = true; // El nuevo valor para ese atributo
 
-    afterUpdate(
-        updatePass(collectionId, documentId, attributeToUpdate, newValue)
-          .then(response => {
-            console.log('Documento actualizado:');
-          })
-          .catch(error => {
-            console.error('Error al actualizar el documento:', error);
-          })
-    );
+//    afterUpdate(
+//        updatePass(collectionId, documentId, attributeToUpdate, newValue)
+//          .then(response => {
+//            console.log('Documento actualizado:');
+//          })
+//          .catch(error => {
+//            console.error('Error al actualizar el documento:', error);
+//          })
+//    );
 
-
+//{#if boleto[0].ocupado}
+// <div class="message">
+//    <img src='/icons/error.png' alt='icono de boleto valido'>
+//    <h2>Entrada No Valida</h2>
+//    <p>El asiento ya esta ocupado</p>
+//  </div>
+//  {:else}
+//  {#if boleto.length > 0}
+//    {#each boleto as b}
+//      <BoletoCard boleto={b}/>
+//    {/each}
+//      <div class="message">
+//        <img src='/icons/chek.png' alt='icono de boleto valido'>
+//        <h2>Entrada Valida</h2>
+//        <p>Disfrute la función</p>
+//      </div>
+//    {:else}
+//      <h2>Boleto no existe</h2>
+//    {/if}
+//{/if}
 
 </script>
 
 
-{#if boleto[0].ocupado}
- <div class="message">
-    <img src='/icons/error.png' alt='icono de boleto valido'>
-    <h2>Entrada No Valida</h2>
-    <p>El asiento ya esta ocupado</p>
-  </div>
-  {:else}
   {#if boleto.length > 0}
     {#each boleto as b}
       <BoletoCard boleto={b}/>
@@ -45,7 +57,7 @@
     {:else}
       <h2>Boleto no existe</h2>
     {/if}
-{/if}
+
 
 <style lang="sass">
   .message
