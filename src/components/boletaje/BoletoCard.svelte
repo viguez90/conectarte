@@ -1,11 +1,10 @@
 <script>
-    import Poster from "@components/Poster.svelte";
 
     export let boleto;
     </script>
 
     <div class="card">
-            <figure class="poster">
+      <figure class="poster">
         <img src={boleto.img} alt={boleto.evento}>
       </figure>
     <ul>

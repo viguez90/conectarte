@@ -51,7 +51,6 @@
     {/each}
       <div class="message">
         <img src='/icons/chek.png' alt='icono de boleto valido'>
-        <h2>Entrada Valida</h2>
         <p>Disfrute la función</p>
       </div>
     {:else}
