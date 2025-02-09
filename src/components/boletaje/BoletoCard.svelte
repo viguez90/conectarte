@@ -1,6 +1,4 @@
 <script>
-    import Poster from "@components/Poster.svelte";
-
     export let boleto;
     </script>
 

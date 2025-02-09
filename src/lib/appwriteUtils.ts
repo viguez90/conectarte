@@ -1,4 +1,4 @@
-import { appwriteDatabases } from '@lib/appwrite';
+import { appwriteDatabases } from './appwrite.ts';
 import { Query } from 'appwrite';
 
 export async function appwriteFetchData(databaseId: string, collectionId: string, limit: number) {

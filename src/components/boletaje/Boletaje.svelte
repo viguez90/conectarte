@@ -1,7 +1,7 @@
 <script lang="ts">
   import { afterUpdate } from "svelte";
-  import { updatePass } from "@lib/appwriteUtils";
-  import BoletoCard from "@components/boletaje/BoletoCard.svelte";
+  import { updatePass } from "../../lib/appwriteUtils";
+  import BoletoCard from "./BoletoCard.svelte";
     export let boleto;
     export let collectionId;
 
@@ -9,15 +9,15 @@
     const attributeToUpdate = 'ocupado'; // El atributo que quieres actualizar
     const newValue = true; // El nuevo valor para ese atributo
 
-//    afterUpdate(
-//        updatePass(collectionId, documentId, attributeToUpdate, newValue)
-//          .then(response => {
-//            console.log('Documento actualizado:', response);
-//          })
-//          .catch(error => {
-//            console.error('Error al actualizar el documento:', error);
-//          })
-//    );
+    afterUpdate(
+        updatePass(collectionId, documentId, attributeToUpdate, newValue)
+          .then(response => {
+            console.log('Documento actualizado:');
+          })
+          .catch(error => {
+            console.error('Error al actualizar el documento:', error);
+          })
+    );
 
 
 
