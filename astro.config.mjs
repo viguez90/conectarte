@@ -3,11 +3,14 @@ import { defineConfig } from 'astro/config';
 
 import svelte from '@astrojs/svelte';
 
-import netlify from '@astrojs/netlify';
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
   output: 'hybrid',
-  adapter: netlify()
+
+  adapter: node({
+    mode: 'standalone',
+  }),
 });
