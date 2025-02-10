@@ -22,12 +22,12 @@
     <style lang="sass">
     .card
       background-color: rgba(219,134,43,1.0)
-      max-width: 99%
+      width: 100%
       min-height: 4em
       box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.2)
       border-radius: 20px
       margin: auto
-      padding-bottom: 2em
+      padding-bottom: 1em
 
     .font-sm
       font-size: 0.8em
@@ -77,7 +77,7 @@
           text-align: center
           margin: auto
           padding: 1em
-          width: 18em
+          width: 45%
           height: auto
 
     #day
@@ -109,12 +109,15 @@
         font-size: 0.6em
 
       .font-xl
-        font-size: 1.2em
+        font-size: 1.4em
 
       .font-lg
         font-size: 1em
 
       .font-2xl
         font-size: 1.2em
-
+      
+      .poster
+        img
+          width: 90%
     </style>

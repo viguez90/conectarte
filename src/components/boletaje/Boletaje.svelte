@@ -62,7 +62,7 @@
   .message
     text-align: center
     padding: 0
-    padding-top: 2em
+    padding-top: 1em
     margin: auto
     img
       width: 4em
