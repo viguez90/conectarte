@@ -1,0 +1,42 @@
+---
+import type { GetStaticPaths } from 'astro';
+import LayoutBoleto from "@layouts/LayoutBoleto.astro";
+import Boletaje from "@components/boletaje/Boletaje.svelte"
+import { getBoletaje, getBoleto } from "@lib/boletajeUtils"
+
+
+export const getStaticPaths = (async () => {
+    const results = await getBoleto("20251503190000"); // Asegúrate de usar await aquí
+
+    const boletos = results.map(e => e.id);
+
+
+    return boletos.map( id => {
+        return {
+            params: { id },
+        };
+
+    });
+}) satisfies GetStaticPaths;
+
+const { id } = Astro.params;
+
+const boletaje = await getBoletaje("20251503190000");
+const { acces } = boletaje;
+const boletajeAcces = acces
+
+const boletos = await getBoleto("20251503190000");
+const boleto = boletos.filter(e => e.id == id);
+---
+
+
+<LayoutBoleto title="Boleto">
+  <h1>Boleto</h1>
+  <h3>{id}</h3>
+  <Boletaje boleto={boleto} collectionId={boletajeAcces}>
+</LayoutBoleto>
+
+
+<style lang="sass">
+
+</style>
