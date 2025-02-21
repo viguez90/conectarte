@@ -1,0 +1,43 @@
+---
+import LayoutBoleto from "@layouts/LayoutBoleto.astro";
+import Boletaje from "@components/boletaje/Boletaje.svelte"
+import { appwriteFetchData } from "@lib/appwriteUtils";
+
+const { event, boleto } = Astro.params;
+
+const boletajeDb = await appwriteFetchData(
+    import.meta.env.PUBLIC_APPWRITE_DB_ID,
+    import.meta.env.PUBLIC_APPWRITE_BOLETAJE_COLLECTION_ID,
+    10
+);
+
+const boletaje = boletajeDb.filter(e => e.id == event);
+
+const boletosDB = await appwriteFetchData(
+    import.meta.env.PUBLIC_APPWRITE_DB_ID,
+    boletaje[0].acces,
+    80
+);
+
+const boletoPass = boletosDB.filter(e => e.id == boleto);
+console.log("#########################################");
+console.log(boletosDB);
+console.log(boletoPass);
+console.log(boleto);
+console.log("#########################################");
+
+---
+
+<LayoutBoleto title="Boleto">
+  <h1>Boleto</h1>
+  <p>{boletoPass[0].id}</p>
+  <Boletaje boleto={boletoPass} collectionId={boletaje[0].acces}>
+</LayoutBoleto>
+
+
+<style lang="sass">
+
+.bg-return
+    display: none
+
+</style>

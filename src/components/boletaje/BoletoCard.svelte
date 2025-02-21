@@ -1,10 +1,11 @@
 <script>
+    import Poster from "@components/Poster.svelte";
 
     export let boleto;
     </script>
 
     <div class="card">
-      <figure class="poster">
+            <figure class="poster">
         <img src={boleto.img} alt={boleto.evento}>
       </figure>
     <ul>
@@ -22,12 +23,12 @@
     <style lang="sass">
     .card
       background-color: rgba(219,134,43,1.0)
-      width: 100%
+      max-width: 99%
       min-height: 4em
       box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.2)
       border-radius: 20px
       margin: auto
-      padding-bottom: 1em
+      padding-bottom: 2em
 
     .font-sm
       font-size: 0.8em
@@ -77,7 +78,7 @@
           text-align: center
           margin: auto
           padding: 1em
-          width: 45%
+          width: 18em
           height: auto
 
     #day
@@ -109,15 +110,12 @@
         font-size: 0.6em
 
       .font-xl
-        font-size: 1.4em
+        font-size: 1.2em
 
       .font-lg
         font-size: 1em
 
       .font-2xl
         font-size: 1.2em
-      
-      .poster
-        img
-          width: 90%
+
     </style>

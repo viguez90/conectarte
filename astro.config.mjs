@@ -2,8 +2,15 @@
 import { defineConfig } from 'astro/config';
 
 import svelte from '@astrojs/svelte';
-//pnpm dlx @astrojs/upgrade
+
+import node from '@astrojs/node';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte()],
+  output: 'server',
+  server: {host:true},
+  adapter: node({
+    mode: 'standalone'
+  })
 });
