@@ -1,49 +1,55 @@
 <script lang="ts">
-  import { afterUpdate } from "svelte";
+  import {afterUpdate, onMount} from "svelte";
   import { updatePass } from "@lib/appwriteUtils";
   import BoletoCard from "@components/boletaje/BoletoCard.svelte";
-    export let boleto;
-    export let collectionId;
+  import CountDate from "@components/boletaje/CountDate.svelte";
 
-    const documentId = boleto[0].$id;
-    const attributeToUpdate = 'ocupado'; // El atributo que quieres actualizar
-    const newValue = true; // El nuevo valor para ese atributo
+  export let boleto;
+  export let boletaje;
 
-//    afterUpdate(
-//        updatePass(collectionId, documentId, attributeToUpdate, newValue)
-//          .then(response => {
-//            console.log('Documento actualizado:', response);
-//          })
-//          .catch(error => {
-//            console.error('Error al actualizar el documento:', error);
-//          })
-//    );
+  const collectionId = boletaje.acces;
+  const documentId = boleto.$id;
+
+  const dateEvent = new Date(boletaje.eventos.date);
+  const now = new Date();
+
+  const attributeToUpdate: string = 'ocupado';
+  const newValue = true;
 
 
+  afterUpdate(() => {
+
+      if (dateEvent <= now) {
+          updatePass(collectionId, documentId, attributeToUpdate, newValue)
+              .then(response => {
+                  console.log('Documento actualizado:');
+              })
+              .catch(error => {
+                  console.error('Error al actualizar el documento:', error);
+              })
+      }
+  });
 
 </script>
 
-
-{#if boleto[0].ocupado}
- <div class="message">
-    <img src='/icons/error.png' alt='icono de boleto valido'>
-    <h2>Entrada No Valida</h2>
-    <p>El asiento ya esta ocupado</p>
-  </div>
-  {:else}
-  {#if boleto.length > 0}
-    {#each boleto as b}
-      <BoletoCard boleto={b}/>
-    {/each}
-      <div class="message">
-        <img src='/icons/chek.png' alt='icono de boleto valido'>
-        <h2>Entrada Valida</h2>
-        <p>Disfrute la función</p>
+    {#if boleto.ocupado}
+     <div class="message">
+        <img src='/icons/error.png' alt='icono de boleto valido'>
+        <h2>Entrada No Valida</h2>
+        <p>El asiento ya esta ocupado</p>
       </div>
-    {:else}
-      <h2>Boleto no existe</h2>
+      {:else}
+      {#if boleto}
+          <BoletoCard boleto={boleto}/>
+          <div class="message">
+            <img src='/icons/chek.png' alt='icono de boleto valido'>
+            <h2>Entrada Valida</h2>
+            <p>Disfrute la función</p>
+          </div>
+        {:else}
+          <h2>Boleto no existe</h2>
+        {/if}
     {/if}
-{/if}
 
 <style lang="sass">
   .message

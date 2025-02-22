@@ -20,18 +20,12 @@ const boletosDB = await appwriteFetchData(
 );
 
 const boletoPass = boletosDB.filter(e => e.id == boleto);
-console.log("#########################################");
-console.log(boletosDB);
-console.log(boletoPass);
-console.log(boleto);
-console.log("#########################################");
-
 ---
 
 <LayoutBoleto title="Boleto">
   <h1>Boleto</h1>
   <p>{boletoPass[0].id}</p>
-  <Boletaje boleto={boletoPass} collectionId={boletaje[0].acces}>
+  <Boletaje boleto={boletoPass[0]} boletaje={boletaje[0]} client:load>
 </LayoutBoleto>
 
 

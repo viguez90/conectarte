@@ -1,13 +1,11 @@
 <script>
-    import Poster from "@components/Poster.svelte";
-
     export let boleto;
-    </script>
+</script>
 
-    <div class="card">
-            <figure class="poster">
+<div class="card">
+    <figure class="poster">
         <img src={boleto.img} alt={boleto.evento}>
-      </figure>
+    </figure>
     <ul>
       <li id="day">
         <span class="font-xl">{boleto.evento}</span>
@@ -20,7 +18,7 @@
     </ul>
     </div>
 
-    <style lang="sass">
+<style lang="sass">
     .card
       background-color: rgba(219,134,43,1.0)
       max-width: 99%
