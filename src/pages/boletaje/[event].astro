@@ -1,0 +1,140 @@
+---
+import LayoutBoleto from "@layouts/LayoutBoleto.astro";
+import {appwriteFetchData} from "../../lib/appwriteUtils";
+
+const { event } = Astro.params;
+
+const boletajeDb = await appwriteFetchData(
+    import.meta.env.PUBLIC_APPWRITE_DB_ID,
+    import.meta.env.PUBLIC_APPWRITE_BOLETAJE_COLLECTION_ID,
+    10
+);
+
+const boletaje = boletajeDb.filter(e => e.id == event);
+
+const evento = boletaje[0].eventos;
+
+const boletosDB = await appwriteFetchData(
+    import.meta.env.PUBLIC_APPWRITE_DB_ID,
+    boletaje[0].acces,
+    80
+);
+
+const totalAsistentes = boletosDB.filter(e => e.ocupado == true);
+const jacky = totalAsistentes.filter(e => e.invitado == "Jaqueline Ruiz");
+const axel = totalAsistentes.filter(e => e.invitado == "Axel Rentería");
+const fatima = totalAsistentes.filter(e => e.invitado == "Fátima Flores");
+const tony = totalAsistentes.filter(e => e.invitado == "Tony Guerra");
+const paola = totalAsistentes.filter(e => e.invitado == "Paola Luccas");
+const karu = totalAsistentes.filter(e => e.invitado == "Karuna")
+const miguel = totalAsistentes.filter(e => e.invitado == "Miguel Bonilla");
+const yoss = totalAsistentes.filter(e => e.invitado == "Yoselin Flores");
+
+const invitado = [
+    {
+        name: 'asistentes',
+        asistentes: totalAsistentes.length,
+    },
+    {
+        name: 'Jacky',
+        asistentes: jacky.length,
+    },
+    {
+        name: 'Axel',
+        asistentes: axel.length,
+    },
+    {
+        name: 'Fátima',
+        asistentes: fatima.length,
+    },
+    {
+        name: 'Tony Guerra',
+        asistentes: tony.length,
+    },
+    {
+        name: 'Paola Luccas',
+        asistentes: paola.length,
+    },
+    {
+        name: 'Karu',
+        asistentes: karu.length,
+    },
+    {
+        name: 'Miguel Bonilla',
+        asistentes: miguel.length,
+    },
+    {
+        name: 'Yoss',
+        asistentes: yoss.length,
+    },
+];
+---
+<LayoutBoleto title="Boletaje">
+    <h1>{evento.obra}</h1>
+    <h2>{evento.title}</h2>
+    <div id="date">
+        <span>{evento.numberDay}</span>
+        <span>{evento.month}</span>
+        <span>{evento.time}</span>
+    </div>
+
+
+    <div class="countdown">
+        <div class="time-unit">
+            {invitado.map((item) => (
+                    <span class="value">{item.asistentes}</span>
+                    <span class="label">{item.name}</span>
+            ))}
+        </div>
+    </div>
+</LayoutBoleto>
+
+<style lang="sass">
+  #date
+    span
+      font-size: 1em
+
+  .countdown
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-flow: row wrap
+    background-color: #AB3D16
+    border-radius: 15px
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2)
+    color: #fff
+    font-family: 'Arial', sans-serif
+    font-size: 12px
+
+  .time-unit
+    display: flex
+    align-items: center
+    margin: 10px
+
+
+  .value
+    font-size: 3em
+    font-weight: bold
+
+  .label
+    font-size: 1.2em
+    text-transform: uppercase
+    opacity: 0.8
+    margin-right: 2em
+    margin-left: 10px
+
+
+
+  @media (max-width: 724px)
+    .countdown
+      flex-direction: column
+      font-size: 10px
+
+    .time-unit
+      flex-direction: column
+
+    .label
+      margin-bottom: 14px
+      margin-right: 0
+
+</style>

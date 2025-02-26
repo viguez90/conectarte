@@ -18,7 +18,7 @@ const { imgLogo } = Astro.props;
 
   <figure class="logo-content">
     <a href="/">
-      <img src={imgLogo} alt="Alianza Teatral Conect-arte logo" class="logo-img" />
+      <img src={imgLogo} type="image/svg+xml" alt="Alianza Teatral Conect-arte logo" class="logo-img" />
     </a>
   </figure>
 
@@ -97,8 +97,8 @@ document.addEventListener('click', (event) => {
 
 .logo-img
   padding: 0
-  width: 10em
-  height: auto
+  width: auto
+  height: 2.4em
 
 .menu-toggle
   display: none

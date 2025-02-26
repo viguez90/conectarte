@@ -1,37 +1,19 @@
 <script lang="ts">
-  import {afterUpdate, onMount} from "svelte";
-  import { updatePass } from "@lib/appwriteUtils";
   import BoletoCard from "@components/boletaje/BoletoCard.svelte";
   import CountDate from "@components/boletaje/CountDate.svelte";
 
   export let boleto;
   export let boletaje;
 
-  const collectionId = boletaje.acces;
-  const documentId = boleto.$id;
-
   const dateEvent = new Date(boletaje.eventos.date);
+  //const dateEvent = new Date(2025,1,26,14,6,0);
   const now = new Date();
-
-  const attributeToUpdate: string = 'ocupado';
-  const newValue = true;
-
-
-  afterUpdate(() => {
-
-      if (dateEvent <= now) {
-          updatePass(collectionId, documentId, attributeToUpdate, newValue)
-              .then(response => {
-                  console.log('Documento actualizado:');
-              })
-              .catch(error => {
-                  console.error('Error al actualizar el documento:', error);
-              })
-      }
-  });
-
 </script>
 
+
+{#if now <= dateEvent}
+    <CountDate dateEvent={dateEvent} />
+    {:else}
     {#if boleto.ocupado}
      <div class="message">
         <img src='/icons/error.png' alt='icono de boleto valido'>
@@ -40,7 +22,13 @@
       </div>
       {:else}
       {#if boleto}
-          <BoletoCard boleto={boleto}/>
+          <BoletoCard
+                  boleto={boleto}
+                  collectionId={boletaje.acces}
+                  documentId={boleto.$id}
+                  dateEvent={dateEvent}
+                  now={now}
+          />
           <div class="message">
             <img src='/icons/chek.png' alt='icono de boleto valido'>
             <h2>Entrada Valida</h2>
@@ -50,6 +38,8 @@
           <h2>Boleto no existe</h2>
         {/if}
     {/if}
+    {/if}
+
 
 <style lang="sass">
   .message

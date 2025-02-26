@@ -1,5 +1,29 @@
-<script>
+<script lang="ts">
+    import {afterUpdate} from "svelte";
+    import {updatePass} from "@lib/appwriteUtils.js";
+
     export let boleto;
+    export let collectionId;
+    export let documentId;
+    export let dateEvent;
+    export let now;
+
+
+    const attributeToUpdate: string = 'ocupado';
+    const newValue = true;
+
+
+    afterUpdate(() => {
+        if (dateEvent <= now) {
+            updatePass(collectionId, documentId, attributeToUpdate, newValue)
+                .then(response => {
+                    console.log('Documento actualizado:');
+                })
+                .catch(error => {
+                    console.error('Error al actualizar el documento:', error);
+                })
+        }
+    });
 </script>
 
 <div class="card">

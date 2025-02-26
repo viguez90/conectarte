@@ -25,7 +25,7 @@ const boletoPass = boletosDB.filter(e => e.id == boleto);
 <LayoutBoleto title="Boleto">
   <h1>Boleto</h1>
   <p>{boletoPass[0].id}</p>
-  <Boletaje boleto={boletoPass[0]} boletaje={boletaje[0]} client:load>
+  <Boletaje boleto={boletoPass[0]} boletaje={boletaje[0]} client:only="svelte">
 </LayoutBoleto>
 
 
